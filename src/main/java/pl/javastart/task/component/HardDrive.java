@@ -1,9 +1,9 @@
-package pl.javastart.task;
+package pl.javastart.task.component;
 
-class HardDrive extends Component {
+public class HardDrive extends Component {
     private final int capacity;
 
-    HardDrive(String model, String producer, int serialNumber, int capacity) {
+    public HardDrive(String model, String producer, int serialNumber, int capacity) {
         super(model, producer, serialNumber);
         if (capacity < 0) {
             throw new IllegalArgumentException("Must be positive value");

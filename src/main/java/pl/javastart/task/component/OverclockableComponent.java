@@ -1,4 +1,4 @@
-package pl.javastart.task;
+package pl.javastart.task.component;
 
 import java.awt.*;
 
@@ -18,20 +18,20 @@ abstract class OverclockableComponent extends Component {
         this.maxTemperature = maxTemperature;
     }
 
-    public int getClockSpeed() {
+    int getClockSpeed() {
         return clockSpeed;
     }
 
-    public double getTemperature() {
+    double getTemperature() {
         return temperature;
     }
 
-    public double getMaxTemperature() {
+    double getMaxTemperature() {
         return maxTemperature;
     }
 
-    void overclock(int desiredClockSpeed) {
-        double temperatureIncrease = temperatureIncrease(desiredClockSpeed);
+    public void overclock(int desiredClockSpeed) {
+        double temperatureIncrease = (desiredClockSpeed - clockSpeed) / 100. * getTemperatureIncrease();
         if (temperature + temperatureIncrease > maxTemperature) {
             throw new IllegalComponentStateException("Temperature is too high");
         } else {
@@ -40,7 +40,7 @@ abstract class OverclockableComponent extends Component {
         }
     }
 
-    abstract double temperatureIncrease(int desiredClockSpeed);
+    abstract double getTemperatureIncrease();
 
     @Override
     public String toString() {

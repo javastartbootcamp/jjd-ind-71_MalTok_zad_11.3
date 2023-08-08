@@ -1,5 +1,9 @@
 package pl.javastart.task;
 
+import pl.javastart.task.component.HardDrive;
+import pl.javastart.task.component.Memory;
+import pl.javastart.task.component.Processor;
+
 import java.awt.*;
 
 public class Main {
@@ -20,7 +24,7 @@ public class Main {
             System.out.println(computer.getMemory());
         } catch (IllegalComponentStateException e) {
             System.err.println("Temperatura jest za wysoka, komponent może ulec spaleniu!");
-        } catch (NullPointerException e) {
+        } catch (InvalidComponentException e) {
             System.err.println("Komponent nie może być null");
         } catch (IllegalArgumentException e) {
             System.err.println("Wartość musi być dodatnia");

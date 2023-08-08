@@ -1,4 +1,4 @@
-package pl.javastart.task;
+package pl.javastart.task.component;
 
 abstract class Component {
     private final String model;
@@ -11,15 +11,15 @@ abstract class Component {
         this.serialNumber = serialNumber;
     }
 
-    public String getModel() {
+    String getModel() {
         return model;
     }
 
-    public String getProducer() {
+    String getProducer() {
         return producer;
     }
 
-    public int getSerialNumber() {
+    int getSerialNumber() {
         return serialNumber;
     }
 

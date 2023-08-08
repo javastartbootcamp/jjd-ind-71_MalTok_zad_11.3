@@ -1,13 +1,17 @@
 package pl.javastart.task;
 
+import pl.javastart.task.component.HardDrive;
+import pl.javastart.task.component.Memory;
+import pl.javastart.task.component.Processor;
+
 public class Computer {
     private final Processor processor;
     private final Memory memory;
     private final HardDrive hardDrive;
 
-    Computer(Processor processor, Memory memory, HardDrive hardDrive) {
+    public Computer(Processor processor, Memory memory, HardDrive hardDrive) {
         if (processor == null || memory == null || hardDrive == null) {
-            throw new NullPointerException("Component cannot be null");
+            throw new InvalidComponentException("Component cannot be null");
         }
         this.processor = processor;
         this.memory = memory;

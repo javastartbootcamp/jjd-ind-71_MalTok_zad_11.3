@@ -1,16 +1,16 @@
-package pl.javastart.task;
+package pl.javastart.task.component;
 
-class Processor extends OverclockableComponent {
+public class Processor extends OverclockableComponent {
     private static final int PROCESSOR_TEMPERATURE_INCREASE_PER_100_MHZ = 10;
 
-    Processor(String model, String producer, int serialNumber,
+    public Processor(String model, String producer, int serialNumber,
                      int clockSpeed, double temperature, double maxTemperature) {
         super(model, producer, serialNumber, clockSpeed, temperature, maxTemperature);
     }
 
     @Override
-    double temperatureIncrease(int desiredClockSpeed) {
-        return (desiredClockSpeed - clockSpeed) / 100. * PROCESSOR_TEMPERATURE_INCREASE_PER_100_MHZ;
+    double getTemperatureIncrease() {
+        return PROCESSOR_TEMPERATURE_INCREASE_PER_100_MHZ;
     }
 
     @Override

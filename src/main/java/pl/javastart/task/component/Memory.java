@@ -1,10 +1,10 @@
-package pl.javastart.task;
+package pl.javastart.task.component;
 
-class Memory extends OverclockableComponent {
+public class Memory extends OverclockableComponent {
     private static final int MEMORY_TEMPERATURE_INCREASE_PER_100_MHZ = 15;
     private final int amount;
 
-    Memory(String model, String producer, int serialNumber,
+    public Memory(String model, String producer, int serialNumber,
                   int clockSpeed, double temperature, double maxTemperature, int amount) {
         super(model, producer, serialNumber, clockSpeed, temperature, maxTemperature);
         if (amount < 0) {
@@ -18,8 +18,8 @@ class Memory extends OverclockableComponent {
     }
 
     @Override
-    double temperatureIncrease(int desiredClockSpeed) {
-        return (desiredClockSpeed - clockSpeed) / 100. * MEMORY_TEMPERATURE_INCREASE_PER_100_MHZ;
+    double getTemperatureIncrease() {
+        return MEMORY_TEMPERATURE_INCREASE_PER_100_MHZ;
     }
 
     @Override
